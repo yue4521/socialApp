@@ -108,3 +108,30 @@ docker-compose.override.yml
 #  その他(ユーザー用)
 # --------------------------------------------------
 
+# Firebase環境ファイル（機密情報を含む）
+.firebase/
+.firebase-tools.json
+.firebaserc
+
+# Firebase Functions（Node.js）の依存ファイル
+functions/node_modules/
+functions/package-lock.json
+
+# Firebase Emulatorのデータ
+firebase-debug.log
+firebase-debug.*.log
+firestore-debug.log
+database-debug.log
+storage-debug.log
+
+# ビルド成果物（Firebase Hosting用）
+public/
+hosting/
+hosting-cache/
+
+# その他の不要なファイル
+.DS_Store
+Thumbs.db
+*.log
+
+

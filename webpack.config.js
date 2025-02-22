@@ -2,15 +2,14 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: 'development', // production にすると本番用最適化が有効
+  mode: 'production', // 本番用
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'build'), // ← ここを "build" に変更！
     filename: 'bundle.js',
   },
   module: {
     rules: [
-      // BabelでJSXや最新JSを変換
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
@@ -21,16 +20,9 @@ module.exports = {
           },
         },
       },
-      // CSS・Tailwindの読み込み
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          {
-            loader: 'postcss-loader',
-          },
-        ],
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
     ],
   },
@@ -39,9 +31,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html', // publicのHTMLをテンプレートとして使用
+      template: './public/index.html',
     }),
   ],
-  // Electronでファイルを読み込めるように相対パスを調整
-  target: 'electron-renderer',
 };

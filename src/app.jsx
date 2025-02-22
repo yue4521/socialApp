@@ -1,14 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { db, collection, addDoc, onSnapshot } from './firebase';
 import PostForm from './components/postform';
 import PostList from './components/postlist';
-import './components/App.css'; // スタイルを適用
 
 function App() {
   const [posts, setPosts] = useState([]);
 
-  const addPost = (text) => {
+  // Firestore から投稿データを取得（リアルタイム更新）
+  useEffect(() => {
+    const unsubscribe = onSnapshot(collection(db, "posts"), (snapshot) => {
+      setPosts(snapshot.docs.map(doc => ({ id: doc.id, text: doc.data().text })));
+    });
+
+    return () => unsubscribe(); // クリーンアップ
+  }, []);
+
+  // Firestore に投稿を追加
+  const addPost = async (text) => {
     if (!text.trim()) return;
-    setPosts([{ text, id: Date.now() }, ...posts]);
+    await addDoc(collection(db, "posts"), { text });
   };
 
   return (
