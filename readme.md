@@ -32,6 +32,6 @@ npm start       # アプリ起動
 | tailwind CSS | [v3.4.17](https://v3.tailwindcss.com) |
 | socket.io | [v4.8.1](https://socket.io/docs/v4/changelog/4.8.1) | 
 
-## 📜 ライセンス
+## ライセンス
 
 MIT License
