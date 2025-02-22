@@ -1,0 +1,79 @@
+/* メインコンテナ */
+.app-container {
+    min-height: 100vh;
+    background-color: #f9fafb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* カードデザイン */
+  .app-card {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* タイトル */
+  .app-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #374151;
+    margin-bottom: 10px;
+  }
+  
+  /* 投稿フォーム */
+  .post-form {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .post-input {
+    flex: 1;
+    border: 1px solid #d1d5db;
+    border-radius: 20px;
+    padding: 10px;
+    outline: none;
+    transition: border 0.2s ease;
+  }
+  
+  .post-input:focus {
+    border-color: #3b82f6;
+  }
+  
+  .post-button {
+    background: linear-gradient(to right, #3b82f6, #2563eb);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .post-button:hover {
+    transform: scale(1.05);
+  }
+  
+  /* 投稿リスト */
+  .post-list {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* 投稿アイテム */
+  .post-item {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    font-size: 1rem;
+  }
